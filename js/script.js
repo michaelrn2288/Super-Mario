@@ -119,9 +119,6 @@ function unfreezeGame() {
   scoreTimer = setInterval(() => {
     scoreValue++;
     document.querySelector('#score-value').textContent = scoreValue;
-    if (game.classList.contains('paused')) {
-      clearInterval(scoreTimer);
-    }
   }, 1500);
 }
 
@@ -153,7 +150,6 @@ function gameOver() {
     }
     playGameOverSong();
     clearInterval(revealGameOver);
-    clearInterval(scoreTimer);
   }, 3000);
 }
 
