@@ -225,8 +225,7 @@ function startGame() {
     //monitora se o mario pega o cogumelo
     //se mario estiver pequeno, ele volta a ficar grande
     //se mario estiver grande, ganha 10 pontos
-    if ((marioColidesOn(mushroom)) &&
-      mario.classList.contains('marioSmall')) {
+    if (marioColidesOn(mushroom) && mario.classList.contains('marioSmall')) {
       mushroom.classList.add('stopped');
       mario.classList.add('invincible');
 
@@ -262,8 +261,7 @@ function startGame() {
         }, 2000);
 
       }, 5);
-    } else if ((marioColidesOn(mushroom)) &&
-      mario.classList.contains('marioBig')) {
+    } else if (marioColidesOn(mushroom) && mario.classList.contains('marioBig')) {
       function PlayMushroomPointSound() {
         mushroomPointSound.loop = false;
         mushroomPointSound.play();
@@ -280,10 +278,10 @@ function startGame() {
     //monitora se o mario acerta algum inimigo/obstáculo
     //se mario estiver grande, ele fica pequeno
     //se mario estiver pequeno, Game Over
-    if (((marioColidesOn(pipe)) ||
-      (marioColidesOn(spiny))) ||
-      (marioColidesOn(shell))) {
-      if (mario.classList.contains('marioBig') && !(mario.classList.contains('invincible'))) {
+    if (marioColidesOn(pipe) ||
+      marioColidesOn(spiny) ||
+      marioColidesOn(shell)) {
+      if (mario.classList.contains('marioBig') && !mario.classList.contains('invincible')) {
         function playDamageSound() {
           damageSound.loop = false;
           damageSound.play();
@@ -314,7 +312,7 @@ function startGame() {
         }, 2000);
       };
 
-      if ((mario.classList.contains('marioSmall')) && (!(mario.classList.contains('invincible')))) {
+      if (mario.classList.contains('marioSmall') && !(mario.classList.contains('invincible'))) {
         clearInterval(loopGame);
         gameOver();
       }
