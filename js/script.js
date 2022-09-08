@@ -62,7 +62,7 @@ freezeGame();
 
 let loopGame;
 
-document.addEventListener("click", jump);
+document.addEventListener("onclick", jump);
 
 mario.style.left = '0';
 const movimento = 1;
